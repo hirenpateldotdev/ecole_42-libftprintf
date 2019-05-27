@@ -17,7 +17,7 @@
 # include <string.h>
 # define SPACE(x) (x=='\f'||x=='\v'||x=='\t'||x=='\r'||x=='\n'||x==' ')
 # define INVALID_FD(fd)  (((fd) < 0 || (fd) > 4096) ? 1 : -1)
-# define BUF_SIZE 36
+# define BUFF_SIZE 36
 # define MAX_FD 4096
 
 
