@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strappend.c                                     :+:      :+:    :+:   */
+/*   ft_putnchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hirenpat <marcin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hirenpat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 12:13:33 by hirenpat          #+#    #+#             */
-/*   Updated: 2019/05/11 17:50:39 by hirenpat         ###   ########.fr       */
+/*   Created: 2018/12/17 14:50:15 by hirenpat          #+#    #+#             */
+/*   Updated: 2018/12/17 14:50:18 by hirenpat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_strappend(char **str, char *sub)
+void	ft_putnchar(int c, int len)
 {
-	char		*temp;
-
-	temp = ft_strjoin(*str, sub);
-	free(*str);
-	*str = temp;
+	if (len > 0)
+		while (len-- > 0)
+			ft_putchar(c);
 }

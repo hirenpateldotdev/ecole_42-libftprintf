@@ -15,11 +15,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-# define SPACE(x) (x=='\f'||x=='\v'||x=='\t'||x=='\r'||x=='\n'||x==' ')
+# define IS_SP(x) (x=='\f'||x=='\v'||x=='\t'||x=='\r'||x=='\n'||x==' ')
 # define INVALID_FD(fd)  (((fd) < 0 || (fd) > 4096) ? 1 : -1)
-# define BUFF_SIZE 36
 # define MAX_FD 4096
-
+# define BUFF_SIZE 100000
 
 typedef struct		s_list
 {
@@ -38,11 +37,9 @@ int					ft_memcmp(const void *s1, const void *s2, size_t len);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
-int					ft_read(int fd, char *buffer, int buff_size);
 size_t				ft_strlen(const char *s);
 char				*ft_strrev(char *s);
 char				*ft_strnew(size_t size);
-void				ft_strappend(char **str, char *sub);
 void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
@@ -54,15 +51,14 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
-void				ft_strtrim_todest(char **dest, char **src, int start, int end);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_strcat(char *dst, char *src);
 char				*ft_strncat(char *dst, char *src, size_t len);
-int					ft_strchrn(char *str, int c);
 char				*ft_strchr(const char *s, int c);
+int					ft_strchrn(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *str, const char *to_find);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -78,6 +74,7 @@ int					ft_str_is_printable(char *str);
 char				*ft_strnstr(const char *str,
 								const char *to_find, size_t len);
 void				ft_putchar(char c);
+void				ft_putnchar(int c, int len);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
@@ -100,6 +97,10 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-int 				get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
+void				ft_strappend(char **str, char *sub);
+void				ft_strtrim_todest(char **dest, char **src, int start, int end);
+int					ft_read(int fd, char *buffer, int buff_size);
+unsigned long long	ft_read_fd(int fd, char **str);
 
 #endif

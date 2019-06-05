@@ -26,7 +26,7 @@ static int	atoi_strdigit(char const *str)
 
 static char	*atoi_skipwhite(char const *str)
 {
-	while (SPACE(*str))
+	while (IS_SP(*str))
 		str++;
 	return ((char*)str);
 }
@@ -76,7 +76,7 @@ int			ft_atoi(const char *str)
 	negative = 1;
 	i = 0;
 	value = 0;
-	while (SPACE(str[i]))
+	while (IS_SP(str[i]))
 		i++;
 	if (str[i] == '-')
 	{
